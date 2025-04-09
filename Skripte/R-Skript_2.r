@@ -8,10 +8,10 @@
 
 # Einlesen eines Datensatzes wie gehabt:
 
-  setwd("C:/Users/rhable.AIKIW10NB01/Nextcloud2/Lehre/Daten/BA-KI_Maschinelles-Lernen")
-  Daten <- read.csv("Koerpergewicht.csv",header=TRUE,sep=";",fill=TRUE,stringsAsFactors=TRUE)
+  setwd("/home/tjorven/Git/KI-B-4/KI-B-4-Machine_Learning")
+  Daten <- read.csv("../Daten/Koerpergewicht.csv",header=TRUE,sep=";",fill=TRUE,stringsAsFactors=TRUE)
 
-# Im folgenden werden verschiedene statistische Kennzahlen für
+# Im folgenden werden verschiedene statistische Kennzahlen fï¿½r
 # die Spalte "Groesse" berechnet.
 
 # Hierzu speichern wir die Spalte "Groesse" des Datensatzes erstmal 
@@ -51,8 +51,8 @@
   quantile(x,0.75)-quantile(x,0.25)  # Interquartilsabstand
 
 
-# Der summary-Befehl kann auch für den kompletten Datensatz verwendet werden
-# und gibt dann für jede Spalte ein 5-Number-Summary bzw. die Häufigkeiten aus
+# Der summary-Befehl kann auch fï¿½r den kompletten Datensatz verwendet werden
+# und gibt dann fï¿½r jede Spalte ein 5-Number-Summary bzw. die Hï¿½ufigkeiten aus
 
   summary(Daten)
 
@@ -60,15 +60,15 @@
 
 # Korrelationen
 
-  # Hierzu speichern wir zunächst die Spalte "Gewicht" noch als "y" ab:
+  # Hierzu speichern wir zunï¿½chst die Spalte "Gewicht" noch als "y" ab:
   
     y <- Daten[,"Gewicht"]
 
-  # gewöhnliche Korrelation (Pearson)
+  # gewï¿½hnliche Korrelation (Pearson)
 
     cor(x,y)
 
-  # Es ginge auch direkt ohne x und y, aber das ist dann etwas unübersichtlicher:
+  # Es ginge auch direkt ohne x und y, aber das ist dann etwas unï¿½bersichtlicher:
   
     cor(Daten[,"Groesse"],Daten[,"Gewicht"])
      
@@ -91,44 +91,44 @@
 
   # Setzen von Grafikoptionen (vgl. Kapitel 1)
 
-    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht")
+    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht")
 
 
-  # Ändern, wie die Punkte aussehen mit Grafikoption 'pch'
+  # ï¿½ndern, wie die Punkte aussehen mit Grafikoption 'pch'
 
-    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19)
-    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=17)
-
-
-  # Ändern der Farbe mit Grafikoption 'col'
-
-    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19,col="blue")
+    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19)
+    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=17)
 
 
-  # Hinzufügen einer Linie in eine bestehende Grafik
+  # ï¿½ndern der Farbe mit Grafikoption 'col'
 
-    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19,col="blue")
+    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19,col="blue")
+
+
+  # Hinzufï¿½gen einer Linie in eine bestehende Grafik
+
+    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19,col="blue")
     abline(a=95,b=-10,col="red")    # Hierbei ist a der Intercept und b die Steigung (slope)
 
 
   # Dasselbe nochmal, jetzt aber mit anderer Liniendicke (vgl. Kapitel 1)
 
-    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19,col="blue")
+    plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19,col="blue")
     abline(a=95,b=-10,col="red",lwd=2)    # Hierbei ist a der Intercept und b die Steigung (slope)
 
 
   # Nochmal die Punktewolke, wobei nun aber das Geschlecht farblich markiert ist:
   
-    # Trenne zunächst den Datensatz in Männer und Frauen
+    # Trenne zunï¿½chst den Datensatz in Mï¿½nner und Frauen
       Frauen <- subset(Daten,Geschlecht=="weiblich")
       Maenner <- subset(Daten,Geschlecht=="maennlich")
     
     # Zeichne nun mit 'plot' nur die Frauen in rot
       x <- Frauen[,"Groesse"]
       y <- Frauen[,"Gewicht"]
-      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19,col="red")
+      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19,col="red")
       
-    # Füge mit 'points' nun die Männer in blau ein
+    # Fï¿½ge mit 'points' nun die Mï¿½nner in blau ein
       x <- Maenner[,"Groesse"]
       y <- Maenner[,"Gewicht"]
       points(x,y,pch=17,col="blue")
@@ -138,7 +138,7 @@
 
   # Und zum Abschluss noch mehrere Bilder auf einmal
 
-    par(mfrow=c(2,3))  # Das heißt: Jetzt kommen gleich 6 Bilder,
+    par(mfrow=c(2,3))  # Das heiï¿½t: Jetzt kommen gleich 6 Bilder,
                        # die in jeweils 2 Zeilen mit 3 Bildern
                        # gemalt werden sollen
 
@@ -148,25 +148,25 @@
       plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100))
       
     # 2. Bild
-      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht")
+      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht")
 
     # 3. Bild
-      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19)
+      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19)
 
     # 4. Bild:
       x <- Frauen[,"Groesse"]
       y <- Frauen[,"Gewicht"]
-      plot(x,y,main="Frauen",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19,col="red")
+      plot(x,y,main="Frauen",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19,col="red")
 
     # 5. Bild 
       x <- Maenner[,"Groesse"]
       y <- Maenner[,"Gewicht"]
-      plot(x,y,main="Männer",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=17,col="blue")
+      plot(x,y,main="Mï¿½nner",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=17,col="blue")
     
     # 6. Bild
       x <- Frauen[,"Groesse"]
       y <- Frauen[,"Gewicht"]
-      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Größe",ylab="Gewicht",pch=19,col="red")      
+      plot(x,y,main="Groesse und Gewicht",xlim=c(1.5,2),ylim=c(50,100),xlab="Grï¿½ï¿½e",ylab="Gewicht",pch=19,col="red")      
       x <- Maenner[,"Groesse"]
       y <- Maenner[,"Gewicht"]
       points(x,y,pch=17,col="blue")
@@ -178,7 +178,7 @@
 # Boxplots
 ######################################
 
-  # Körpergroßen von Frauen, Männern und allen zusammen
+  # Kï¿½rpergroï¿½en von Frauen, Mï¿½nnern und allen zusammen
 
     x <- Frauen[,"Groesse"]
     y <- Maenner[,"Groesse"]
@@ -190,18 +190,18 @@
     boxplot(x)
 
 
-  # Zwei Boxplots nebeneinander und mit Überschriften
+  # Zwei Boxplots nebeneinander und mit ï¿½berschriften
 
     par(mfrow=c(1,2))
     boxplot(x,main="Frauen")
-    boxplot(y,main="Männer")
+    boxplot(y,main="Mï¿½nner")
 
 
   # Besser, man macht die Achsen einheitlich
 
     par(mfrow=c(1,2))
     boxplot(x,main="Frauen",ylim=c(1.5,2))
-    boxplot(y,main="Männer",ylim=c(1.5,2))
+    boxplot(y,main="Mï¿½nner",ylim=c(1.5,2))
 
   # Noch besser man macht die beiden Boxplots in ein Bild:
 
@@ -210,11 +210,11 @@
   # Noch besser man macht die beiden Boxplots in ein Bild
   # und vergibt auch Namen
 
-    boxplot(x,y,main="Körpergröße",names=c("Frauen","Männer"))
+    boxplot(x,y,main="Kï¿½rpergrï¿½ï¿½e",names=c("Frauen","Mï¿½nner"))
 
   # Dasselbe geht auch mit noch mehr Boxplots:
 
-    boxplot(x,y,z,main="Körpergröße",names=c("Frauen","Männer","Gesamt"))
+    boxplot(x,y,z,main="Kï¿½rpergrï¿½ï¿½e",names=c("Frauen","Mï¿½nner","Gesamt"))
 
 
 
@@ -222,7 +222,7 @@
 # Histogramme
 ######################################
 
-  # Körpergewicht
+  # Kï¿½rpergewicht
 
     x <- Daten[,"Gewicht"]
 
@@ -232,9 +232,9 @@
     hist(x,freq=FALSE)
 
 
-  # Das ganze läßt sich wieder beliebig verändern
+  # Das ganze lï¿½ï¿½t sich wieder beliebig verï¿½ndern
 
-    hist(x,freq=FALSE,main="Das ist jetzt meine Überschrift",ylim=c(0,0.2),xlab="Gewicht",ylab="Dichte")
+    hist(x,freq=FALSE,main="Das ist jetzt meine ï¿½berschrift",ylim=c(0,0.2),xlab="Gewicht",ylab="Dichte")
 
 
   # Mann kann auch angeben, wo man die Balkengrenzen haben will:
@@ -252,7 +252,7 @@
 ######################################
 
 
-  # Zunächst wird ein Vektor mit den Höhen der Balken definiert
+  # Zunï¿½chst wird ein Vektor mit den Hï¿½hen der Balken definiert
 
     a <- c(1,5.2,-2,3.4,2,0,-1,4)
 
@@ -299,7 +299,7 @@
 
   summary(Daten)
 
-# Ausgabe von Kontingenztafeln für die nominalen Variablen:
+# Ausgabe von Kontingenztafeln fï¿½r die nominalen Variablen:
 
   Daten.kategoriell <- Daten[,c("Krankheit","Geschlecht","Raucher")]
   table(Daten.kategoriell)
