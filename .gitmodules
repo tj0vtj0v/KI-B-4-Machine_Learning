@@ -1,0 +1,3 @@
+[submodule "project"]
+	path = project
+	url = git@github.com:timesleep5/KI-B-4-Maschinelles_Lernen_Projekt.git
